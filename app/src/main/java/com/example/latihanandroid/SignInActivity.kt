@@ -13,6 +13,7 @@ class SignInActivity : AppCompatActivity() {
         btnSignIn.setOnClickListener {
             var intent = Intent(this@SignInActivity, HomeActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 }
