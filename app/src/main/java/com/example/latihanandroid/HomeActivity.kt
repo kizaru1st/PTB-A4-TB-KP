@@ -24,7 +24,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         btnPengajuanKP.setOnClickListener {
-            var intent = Intent(this@HomeActivity, LogBookActivity::class.java)
+            var intent = Intent(this, LogBookActivity::class.java)
             startActivity(intent)
         }
 
