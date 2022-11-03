@@ -58,6 +58,7 @@ class HomeActivity : AppCompatActivity() {
         newRecyclerView.layoutManager = LinearLayoutManager(this)
         newRecyclerView.setHasFixedSize(true)
 
+//      Passing data to adapter
         newArrayList = arrayListOf<DataListKP>()
         getUserdata()
     }

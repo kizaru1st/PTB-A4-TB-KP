@@ -62,15 +62,6 @@ class LogBookActivity : AppCompatActivity() {
             "Kegiatan Kerja Praktik",
         )
 
-//        kegList.add(DataLogbook("Hari Pertama", "30 September 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Kedua", "1 Oktober 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Ketiga", "2 Oktober 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Keempat", "3 Oktober 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Kelima", "3 Oktober 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Keenam", "3 Oktober 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Ketujuh", "3 Oktober 2022", "Kegiatan Kerja Praktik"))
-//        kegList.add(DataLogbook("Hari Kedelapan", "3 Oktober 2022", "Kegiatan Kerja Praktik"))
-
         kegList = arrayListOf<DataLogbook>()
         getUserdata()
 
