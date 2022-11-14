@@ -23,6 +23,16 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        cvProfile.setOnClickListener {
+            var intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnDetailKP.setOnClickListener {
+            var intent = Intent(this, PengajuanKPActivity::class.java)
+            startActivity(intent)
+        }
+
         btnPengajuanKP.setOnClickListener {
             var intent = Intent(this, LogBookActivity::class.java)
             startActivity(intent)
