@@ -34,7 +34,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btnPengajuanKP.setOnClickListener {
-            var intent = Intent(this, LogBookActivity::class.java)
+            var intent = Intent(this, DetailKPActivity::class.java)
             startActivity(intent)
         }
 
