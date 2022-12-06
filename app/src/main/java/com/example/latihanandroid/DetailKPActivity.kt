@@ -20,5 +20,15 @@ class DetailKPActivity : AppCompatActivity() {
             var intent = Intent(this, InputDataSeminarActivity::class.java)
             startActivity(intent)
         }
+
+        cvLaporanAkhirKP.setOnClickListener {
+            var intent = Intent(this, LaporanAkhirKPActivity::class.java)
+            startActivity(intent)
+        }
+
+        cvBalasanPermohonanKP.setOnClickListener {
+            var intent = Intent(this, BalasanPermohonanKPActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
