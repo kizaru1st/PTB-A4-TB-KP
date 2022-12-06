@@ -16,5 +16,9 @@ class DetailKPActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        cvInputDataSeminar.setOnClickListener {
+            var intent = Intent(this, InputDataSeminarActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
