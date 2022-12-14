@@ -44,11 +44,25 @@ class HomeActivity : AppCompatActivity() {
             "Multipolar",
             "PT Semen Padang",
             "Kominfo Sumbar",
+            "Disukcapil Padang",
+            "Kominfo Padang",
+            "Multipolar",
+            "PT Semen Padang",
+            "Kominfo Sumbar",
+            "Disukcapil Padang",
+            "Kominfo Sumbar",
             "Disukcapil Padang"
         )
 
         status = arrayOf(
             "Diterima",
+            "Ditolak",
+            "Ditolak",
+            "Ditolak",
+            "Ditolak",
+            "Diterima",
+            "Ditolak",
+            "Ditolak",
             "Ditolak",
             "Ditolak",
             "Ditolak",
@@ -62,6 +76,12 @@ class HomeActivity : AppCompatActivity() {
             "Alasan 4",
             "Alasan 5",
             "Alasan 6",
+            "Alasan 7",
+            "Alasan 8",
+            "Alasan 9",
+            "Alasan 10",
+            "Alasan 11",
+            "Alasan 12",
         )
 
         newRecyclerView = findViewById(R.id.rvList)
