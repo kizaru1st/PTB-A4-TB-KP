@@ -63,49 +63,49 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="NIM"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5" />
+                app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
             <TextView
                 android:id="@+id/textView16"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Handphone"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+                app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
             <TextView
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Tanggal Lahir"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+                app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
             <TextView
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:text="Jenis kelamin"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView46" />
 
             <TextView
                 android:id="@+id/textView15"
@@ -119,107 +119,86 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:hint="reza@gmail.com"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView15"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:hint="Padang, 1 Januari 1990"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:hint="081234567890"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:hint="Laki-Laki"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14"
-                tools:ignore="TouchTargetSizeCheck" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:hint="2011523015"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12"
-                tools:ignore="TouchTargetSizeCheck" />
-
             <Button
                 android:id="@+id/btnEdit"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/shape_rectangle_green"
                 android:text="Edit"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnReset"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+                app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
             <Button
                 android:id="@+id/btnReset"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/shape_rectangle_green"
                 android:text="Reset Password"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView48" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="reza@gmail.com"
+                android:textColor="@color/hintGrey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+            <TextView
+                android:id="@+id/textView45"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Padang, 1 Januari 1960"
+                android:textColor="@color/hintGrey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/btnEdit"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName6" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+            <TextView
+                android:id="@+id/textView46"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="081234432180"
+                android:textColor="@color/hintGrey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+            <TextView
+                android:id="@+id/textView47"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Laki-Laki"
+                android:textColor="@color/hintGrey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="2011523015"
+                android:textColor="@color/hintGrey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -232,7 +211,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:gravity="center"
-        android:text="HOME"
+        android:text="PROFILE"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"

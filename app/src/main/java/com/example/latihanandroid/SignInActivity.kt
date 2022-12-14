@@ -2,6 +2,8 @@ package com.example.latihanandroid
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -24,11 +26,17 @@ class SignInActivity : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createNotificationChannel()
         }
+        val intent = Intent(this, ProfileActivity::class.java)
+        val pendingIntent = TaskStackBuilder.create(this).run {
+            addNextIntentWithParentStack(intent)
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+        }
         val notification = NotificationCompat.Builder(this, CHANNEL_ID_login)
             .setContentTitle("PTB A4")
             .setContentText("Berhasil Login!")
             .setSmallIcon(R.drawable.ic_star)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setContentIntent(pendingIntent)
             .build()
         val notificationManager = NotificationManagerCompat.from(this)
 
