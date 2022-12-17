@@ -106,7 +106,7 @@ class SignInActivity : AppCompatActivity() {
                         finish()
                     }
                     else {
-                        Toast.makeText(this@SignInActivity, "Tidak ada input", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@SignInActivity, "Silahkan input username dan password Anda!", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
