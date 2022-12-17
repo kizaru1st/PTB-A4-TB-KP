@@ -14,11 +14,28 @@ import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import kotlinx.android.synthetic.main.activity_sign_in.*
+//Retrofit
+import android.widget.EditText
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import okhttp3.OkHttpClient
+import android.widget.Toast
+import android.util.Log
+import android.view.View
+import android.widget.Button
+import com.example.latihanandroid.datamodels.LoginResponse
+import com.example.latihanandroid.retrofit.Login
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignInActivity : AppCompatActivity() {
     val CHANNEL_ID_login = "channelID_login"
     val CHANNEL_NAME_login = "channelName_login"
     val NOTIFICATION_ID_login = 0
+    lateinit var editEmail: EditText
+    lateinit  var editPassword: EditText
+    lateinit  var buttonLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,13 +56,13 @@ class SignInActivity : AppCompatActivity() {
             .setContentIntent(pendingIntent)
             .build()
         val notificationManager = NotificationManagerCompat.from(this)
-
-        btnSignIn.setOnClickListener {
-            notificationManager.notify(NOTIFICATION_ID_login, notification)
-            var intent = Intent(this@SignInActivity, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
+        cekLogin()
+//        btnSignIn.setOnClickListener {
+//            notificationManager.notify(NOTIFICATION_ID_login, notification)
+//            var intent = Intent(this@SignInActivity, HomeActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -58,5 +75,46 @@ class SignInActivity : AppCompatActivity() {
             val manager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             manager.createNotificationChannel(channel)
         }
+    }
+    fun cekLogin() {
+        editEmail = findViewById(R.id.editEmail)
+        editPassword = findViewById(R.id.editPassword)
+        buttonLogin = findViewById(R.id.btnSignIn)
+        buttonLogin.setOnClickListener(View.OnClickListener {
+            val API_BASE_URL = "http://ptb-api.husnilkamil.my.id/api/"
+            var username = editEmail.getText().toString()
+            var password = editPassword.getText().toString()
+            val retrofit = Retrofit.Builder()
+                .baseUrl(API_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(OkHttpClient.Builder().build())
+                .build()
+            val client = retrofit.create(Login::class.java)
+            val call = client.login(username, password)
+            call!!.enqueue(object : Callback<LoginResponse?> {
+                override fun onResponse(
+                    call: Call<LoginResponse?>,
+                    response: Response<LoginResponse?>
+                ) {
+                    val loginResponse = response.body()
+                    Log.d("loginResponse", "login response error")
+                    if (loginResponse != null) {
+                        Toast.makeText(this@SignInActivity, "Sukses Login", Toast.LENGTH_SHORT)
+                            .show()
+                        val mainIntent = Intent(this@SignInActivity, HomeActivity::class.java)
+                        startActivity(mainIntent)
+                        finish()
+                    }
+                    else {
+                        Toast.makeText(this@SignInActivity, "Tidak ada input", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+
+                override fun onFailure(call: Call<LoginResponse?>, t: Throwable) {
+                    Toast.makeText(this@SignInActivity, "Gagal Login", Toast.LENGTH_SHORT).show()
+                }
+            })
+        })
     }
 }
