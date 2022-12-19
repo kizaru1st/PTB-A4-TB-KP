@@ -19,7 +19,6 @@ class EditPasswordActivity : AppCompatActivity() {
     val CHANNEL_ID_EditPassword = "channelID_EditPassword"
     val CHANNEL_NAME_EditPassword = "channelName_EditPassword"
     val NOTIFICATION_ID_EditPassword = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_password)
@@ -41,12 +40,9 @@ class EditPasswordActivity : AppCompatActivity() {
         val notificationManager = NotificationManagerCompat.from(this)
         btnEditPassword.setOnClickListener {
             notificationManager.notify(NOTIFICATION_ID_EditPassword, notification)
-            var intent = Intent(this@EditPasswordActivity, HomeActivity::class.java)
-            startActivity(intent)
             finish()
         }
     }
-
     @RequiresApi(Build.VERSION_CODES.O)
     fun createNotificationChannel() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -57,12 +57,6 @@ class SignInActivity : AppCompatActivity() {
             .build()
         val notificationManager = NotificationManagerCompat.from(this)
         cekLogin()
-//        btnSignIn.setOnClickListener {
-//            notificationManager.notify(NOTIFICATION_ID_login, notification)
-//            var intent = Intent(this@SignInActivity, HomeActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -99,20 +93,27 @@ class SignInActivity : AppCompatActivity() {
                     val loginResponse = response.body()
                     Log.d("loginResponse", "login response error")
                     if (loginResponse != null) {
-                        Toast.makeText(this@SignInActivity, "Sukses Login", Toast.LENGTH_SHORT)
-                            .show()
+                        val token = response?.body()?.authorisation?.token
+                        val sharedPref = getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?:return
+                        with(sharedPref.edit()){
+                            putString("TOKEN", token)
+                            apply()
+                        }
+                        Log.d("Data",response.body().toString())
+                        val name = response.body()?.user?.name!!.toString()
+                        Toast.makeText(applicationContext, "Welcome $name", Toast.LENGTH_SHORT).show()
                         val mainIntent = Intent(this@SignInActivity, HomeActivity::class.java)
                         startActivity(mainIntent)
                         finish()
                     }
                     else {
-                        Toast.makeText(this@SignInActivity, "Silahkan input username dan password Anda!", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@SignInActivity, "Terdapat kesalahan pada Username atau Password Anda!", Toast.LENGTH_SHORT)
                             .show()
                     }
                 }
 
                 override fun onFailure(call: Call<LoginResponse?>, t: Throwable) {
-                    Toast.makeText(this@SignInActivity, "Gagal Login", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignInActivity, t.message, Toast.LENGTH_SHORT).show()
                 }
             })
         })
