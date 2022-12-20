@@ -23,7 +23,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.example.latihanandroid.datamodels.LoginResponse
-import com.example.latihanandroid.retrofit.Login
+import com.example.latihanandroid.retrofit.Api
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -82,7 +82,7 @@ class SignInActivity : AppCompatActivity() {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.Builder().build())
                 .build()
-            val client = retrofit.create(Login::class.java)
+            val client = retrofit.create(Api::class.java)
             val call = client.login(username, password)
             call!!.enqueue(object : Callback<LoginResponse?> {
                 override fun onResponse(

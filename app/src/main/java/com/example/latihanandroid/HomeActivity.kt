@@ -10,10 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.latihanandroid.Home.AdapterListKP
 import com.example.latihanandroid.Home.DataListKP
-import com.example.latihanandroid.datamodels.GetProfileResponse
-import com.example.latihanandroid.datamodels.LoginResponse
 import com.example.latihanandroid.datamodels.LogoutResponse
-import com.example.latihanandroid.retrofit.Login
+import com.example.latihanandroid.retrofit.Api
 import kotlinx.android.synthetic.main.activity_home.*
 import okhttp3.OkHttpClient
 import retrofit2.Callback
@@ -42,12 +40,12 @@ class HomeActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient.Builder().build())
             .build()
-        val client = retrofit.create(Login::class.java)
+        val client = retrofit.create(Api::class.java)
         val call = client.logout("Bearer $token")
 
 
         btnLogout.setOnClickListener {
-            val client = retrofit.create(Login::class.java)
+            val client = retrofit.create(Api::class.java)
             val call = client.logout("Bearer $token")
             call!!.enqueue(object : Callback<LogoutResponse?> {
                 override fun onResponse(
