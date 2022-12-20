@@ -13,7 +13,6 @@ import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import kotlinx.android.synthetic.main.activity_sign_in.*
 //Retrofit
 import android.widget.EditText
 import retrofit2.Retrofit
