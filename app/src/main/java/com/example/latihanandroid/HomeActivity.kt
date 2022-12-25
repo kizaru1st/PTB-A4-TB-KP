@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.latihanandroid.Home.AdapterListKP
 import com.example.latihanandroid.Home.DataListKP
+import com.example.latihanandroid.datamodels.GetProfileResponse
 import com.example.latihanandroid.datamodels.LogoutResponse
 import com.example.latihanandroid.retrofit.Api
 import kotlinx.android.synthetic.main.activity_home.*
@@ -40,8 +41,24 @@ class HomeActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .client(OkHttpClient.Builder().build())
             .build()
-        val client = retrofit.create(Api::class.java)
-        val call = client.logout("Bearer $token")
+
+        val clientGetProfile = retrofit.create(Api::class.java)
+        val callGetProfile = clientGetProfile.profile("Bearer $token")
+        callGetProfile!!.enqueue(object : Callback<GetProfileResponse?> {
+            override fun onResponse(
+                call: Call<GetProfileResponse?>,
+                response: Response<GetProfileResponse?>
+            ) {
+                val respon = response.body()
+                val getNama = respon?.name
+                val getUsername = respon?.username
+                tvName.setText(getNama)
+                tvEmail.setText(getUsername)
+            }
+            override fun onFailure(call: Call<GetProfileResponse?>, t: Throwable) {
+                Toast.makeText(this@HomeActivity, "Gaga", Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
         btnLogout.setOnClickListener {
