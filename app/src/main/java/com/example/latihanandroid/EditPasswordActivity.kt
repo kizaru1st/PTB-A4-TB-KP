@@ -108,7 +108,7 @@ class EditPasswordActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@EditPasswordActivity, "Password & Confirm Passowrd Salah", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@EditPasswordActivity, "Terdapat Kesalahan dalam mengupdate Password", Toast.LENGTH_SHORT).show()
                 }
             }
         })

@@ -110,7 +110,7 @@ class EditProfileActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@EditProfileActivity, "Salah", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@EditProfileActivity, "Terdapat Kesalahan dalam mengupdate Profile", Toast.LENGTH_SHORT).show()
                 }
             }
 
