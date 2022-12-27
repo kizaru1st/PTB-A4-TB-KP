@@ -1,9 +1,6 @@
 package com.example.latihanandroid.retrofit
 
-import com.example.latihanandroid.datamodels.GetProfileResponse
-import com.example.latihanandroid.datamodels.LoginResponse
-import com.example.latihanandroid.datamodels.LogoutResponse
-import com.example.latihanandroid.datamodels.UpdateProfileResponse
+import com.example.latihanandroid.datamodels.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -28,4 +25,13 @@ interface Api {
         @Field("name") name:String,
         @Field("email") email:String
     ):Call<UpdateProfileResponse>
+
+    @FormUrlEncoded
+    @POST("/api/password")
+    fun updatePassword(
+        @Header("Authorization")token: String,
+        @Field("old_password") old_password:String,
+        @Field("new_password") new_password:String,
+        @Field("confirm_password") confirm_password:String
+    ):Call<UpdatePasswordResponse>
 }
