@@ -30,7 +30,7 @@
                 android:id="@+id/textView19"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PENGAJUAN KP"
+                android:text="EDIT LOGBOOK"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -41,7 +41,7 @@
                 android:id="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lengkapi Formulir berikut untuk mengajukan KP"
+                android:text="Lengkapi Data Berikut:"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:text="Nama"
+                android:text="Hari Ke-"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -76,108 +76,63 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="NIM"
+                android:text="Tanggal"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName7" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName8"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView22"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="SKS yang sudah diambil"
+                android:layout_marginTop="74dp"
+                android:text="Kegiatan Kerja Praktik"
                 android:textColor="@color/black"
                 android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName8" />
+                app:layout_constraintTop_toTopOf="@+id/textView22" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
                 android:backgroundTint="@color/black"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textColorHint="@color/hintGrey"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23"
                 tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Instansi Kerja Praktik"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName9" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName12"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textColorHint="@color/hintGrey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-            <TextView
-                android:id="@+id/textView25"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Bidang Kerja Praktik"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName12" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName13"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
-                android:ems="10"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView25"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/buttonAjukanLogbook"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="104dp"
                 android:background="@drawable/shape_rectangle_green"
                 android:text="Ajukan"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.8"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName13" />
+                app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName9" />
+
+            <EditText
+                android:id="@+id/editTextDate3"
+                android:layout_width="370dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="168dp"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.272"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

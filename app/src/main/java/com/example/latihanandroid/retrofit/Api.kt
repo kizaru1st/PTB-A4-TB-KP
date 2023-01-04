@@ -34,4 +34,14 @@ interface Api {
         @Field("new_password") new_password:String,
         @Field("confirm_password") confirm_password:String
     ):Call<UpdatePasswordResponse>
+
+    @FormUrlEncoded
+    @POST("/api/my-internship-submissions")
+    fun formPengajuan(
+        @Field("nama") nama: String,
+        @Field("nim") nim:String,
+        @Field("sks") sks:String,
+        @Field("instansi") instansi:String,
+        @Field("bidang") bidang:String
+    ):Call<UpdatePasswordResponse>
 }
