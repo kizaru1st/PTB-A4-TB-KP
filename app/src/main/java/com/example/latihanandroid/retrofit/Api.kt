@@ -34,4 +34,16 @@ interface Api {
         @Field("new_password") new_password:String,
         @Field("confirm_password") confirm_password:String
     ):Call<UpdatePasswordResponse>
+
+//    UAS
+    @GET("/api/my-internship/{id}/logbook")
+    fun listlogbook(@Header("Authorization") token: String, @Path("id") id:Int
+    ):Call<ListLogbookResponse>
+
+    @POST("/api/my-internship/2/finish-statement")
+    fun laporSelesaiKp(
+        @Header("Authorization") token: String,
+        @Path("id") id:Int,
+        @Field("end_date") end_date:String
+    ):Call<LaporKpSelesaiResponse>
 }
