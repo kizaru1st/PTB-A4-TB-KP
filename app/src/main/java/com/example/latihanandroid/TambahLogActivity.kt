@@ -25,11 +25,11 @@ class TambahLogActivity : AppCompatActivity() {
         binding = ActivityTambahLogBinding.inflate(layoutInflater)
         setContentView(binding.root)
         button3.setOnClickListener {
-            onButtonSaveTambahLogbook()
+            Save()
         }
     }
 
-    fun onButtonSaveTambahLogbook() {
+    fun Save() {
         val sharedToken = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)?: return
         val token = sharedToken.getString("TOKEN",null)
         val kegiatan = binding.InsertLogBook.text.toString()
