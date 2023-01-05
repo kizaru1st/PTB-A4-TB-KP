@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -84,6 +85,8 @@ class HomeActivity : AppCompatActivity() {
             })
         }
 
+
+
         cvProfile.setOnClickListener {
             var intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
@@ -98,6 +101,14 @@ class HomeActivity : AppCompatActivity() {
             var intent = Intent(this, DetailKPActivity::class.java)
             startActivity(intent)
         }
+
+
+
+
+
+
+
+
 
 
         instansi = arrayOf(
@@ -152,6 +163,11 @@ class HomeActivity : AppCompatActivity() {
 //      Passing data to adapter
         newArrayList = arrayListOf<DataListKP>()
         getUserdata()
+    }
+
+    fun kereferensi(view: View) {
+        val intent = Intent(this@HomeActivity, referensi_tempat_kp::class.java)
+        startActivity(intent)
     }
 
     private fun getUserdata() {
