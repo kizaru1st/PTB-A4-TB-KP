@@ -5,25 +5,26 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.latihanandroid.R
+import com.example.latihanandroid.datamodels.InternshipItem
 
 class ViewHolder1(inflater: LayoutInflater, parent: ViewGroup): RecyclerView.ViewHolder(inflater.inflate(
     R.layout.list_pengajuankp, parent, false)){
 
     private var Tittle : TextView? = null
     private var TittleSub : TextView? = null
-    private var TittleSub1 : TextView? = null
+
 
     init {
         Tittle = itemView.findViewById(R.id.tittle)
         TittleSub = itemView.findViewById(R.id.tittle_sub)
-        TittleSub1 = itemView.findViewById(R.id.tittle_sub1)
+
 
     }
 
-    fun bind (data:ListAjuan){
-        Tittle?.text=data.Tittle
-        TittleSub?.text=data.TittleSub
-        TittleSub1?.text=data.TittleSub1
+    fun bind (data:InternshipItem){
+        Tittle?.text=data.agency
+        TittleSub?.text=data.title
+
     }
 
 }

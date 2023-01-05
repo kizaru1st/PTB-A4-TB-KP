@@ -45,4 +45,9 @@ interface Api {
         @Field("bidang") bidang:String
     ):Call<UpdatePasswordResponse>
 
+    @GET("my-internship")
+    fun getListKpResponse(@Header("Authorization") token:String):Call<ListkpResponse>
+
+    @GET("my-internship")
+    fun getInternshipItem(@Header("Authorization") token:String):Call<InternshipItem>
 }

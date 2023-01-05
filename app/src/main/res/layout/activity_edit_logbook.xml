@@ -113,7 +113,7 @@
                 android:id="@+id/buttonAjukanLogbook"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="104dp"
+                android:layout_marginTop="88dp"
                 android:background="@drawable/shape_rectangle_green"
                 android:text="Ajukan"
                 app:layout_constraintEnd_toEndOf="parent"

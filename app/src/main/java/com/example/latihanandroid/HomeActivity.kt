@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.latihanandroid.Home.AdapterListKP
 import com.example.latihanandroid.Home.DataListKP
 import com.example.latihanandroid.datamodels.GetProfileResponse
+import com.example.latihanandroid.datamodels.InternshipItem
+import com.example.latihanandroid.datamodels.ListkpResponse
 import com.example.latihanandroid.datamodels.LogoutResponse
+import com.example.latihanandroid.pengajuankp.MyAdapter1
 import com.example.latihanandroid.retrofit.Api
 import kotlinx.android.synthetic.main.activity_home.*
 import okhttp3.OkHttpClient
@@ -21,18 +24,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Call
 import retrofit2.Response
 
+
 class HomeActivity : AppCompatActivity() {
     private lateinit var newRecyclerView: RecyclerView
-    private lateinit var newArrayList: ArrayList<DataListKP>
+    private lateinit var newArrayList: ArrayList<InternshipItem>
     lateinit var instansi: Array<String>
     lateinit var status: Array<String>
     lateinit var alasan: Array<String>
+    lateinit var adapter : MyAdapter1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val sharedPref = applicationContext.getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?: return
+        val sharedPref =
+            applicationContext.getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?: return
         val token = sharedPref.getString("TOKEN", "")
 
         val API_BASE_URL = "http://ptb-api.husnilkamil.my.id/api/"
@@ -55,6 +61,7 @@ class HomeActivity : AppCompatActivity() {
                 tvName.setText(getNama)
                 tvEmail.setText(getUsername)
             }
+
             override fun onFailure(call: Call<GetProfileResponse?>, t: Throwable) {
                 Toast.makeText(this@HomeActivity, "Gaga", Toast.LENGTH_SHORT).show()
             }
@@ -78,6 +85,7 @@ class HomeActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 }
+
                 override fun onFailure(call: Call<LogoutResponse?>, t: Throwable) {
                     Toast.makeText(this@HomeActivity, "Gaga", Toast.LENGTH_SHORT).show()
                 }
@@ -100,65 +108,89 @@ class HomeActivity : AppCompatActivity() {
         }
 
 
-        instansi = arrayOf(
-            "Kominfo Padang",
-            "Multipolar",
-            "PT Semen Padang",
-            "Kominfo Sumbar",
-            "Disukcapil Padang",
-            "Kominfo Padang",
-            "Multipolar",
-            "PT Semen Padang",
-            "Kominfo Sumbar",
-            "Disukcapil Padang",
-            "Kominfo Sumbar",
-            "Disukcapil Padang"
-        )
+//        instansi = arrayOf(
+//            "Kominfo Padang",
+//            "Multipolar",
+//            "PT Semen Padang",
+//            "Kominfo Sumbar",
+//            "Disukcapil Padang",
+//            "Kominfo Padang",
+//            "Multipolar",
+//            "PT Semen Padang",
+//            "Kominfo Sumbar",
+//            "Disukcapil Padang",
+//            "Kominfo Sumbar",
+//            "Disukcapil Padang"
+//        )
+//
+//        status = arrayOf(
+//            "Diterima",
+//            "Ditolak",
+//            "Ditolak",
+//            "Ditolak",
+//            "Ditolak",
+//            "Diterima",
+//            "Ditolak",
+//            "Ditolak",
+//            "Ditolak",
+//            "Ditolak",
+//            "Ditolak",
+//            "Ditolak"
+//        )
+//
+//        alasan = arrayOf(
+//            "Alasan 1",
+//            "Alasan 2",
+//            "Alasan 3",
+//            "Alasan 4",
+//            "Alasan 5",
+//            "Alasan 6",
+//            "Alasan 7",
+//            "Alasan 8",
+//            "Alasan 9",
+//            "Alasan 10",
+//            "Alasan 11",
+//            "Alasan 12",
+//        )
+//
+//        newRecyclerView = findViewById(R.id.rvList)
 
-        status = arrayOf(
-            "Diterima",
-            "Ditolak",
-            "Ditolak",
-            "Ditolak",
-            "Ditolak",
-            "Diterima",
-            "Ditolak",
-            "Ditolak",
-            "Ditolak",
-            "Ditolak",
-            "Ditolak",
-            "Ditolak"
-        )
 
-        alasan = arrayOf(
-            "Alasan 1",
-            "Alasan 2",
-            "Alasan 3",
-            "Alasan 4",
-            "Alasan 5",
-            "Alasan 6",
-            "Alasan 7",
-            "Alasan 8",
-            "Alasan 9",
-            "Alasan 10",
-            "Alasan 11",
-            "Alasan 12",
-        )
+////      Passing data to adapter
+//        newArrayList = arrayListOf<DataListKP>()
+//        getUserdata()
+//    }
+//
+//    private fun getUserdata() {
+//        for(i in instansi.indices) {
+//            val datalist = DataListKP(instansi[i], status[i], alasan[i])
+//            newArrayList.add(datalist)
+//        }
+        //newRecyclerView.adapter = MyAdapter1(newArrayList)
 
-        newRecyclerView = findViewById(R.id.rvList)
-        newRecyclerView.layoutManager = LinearLayoutManager(this)
-        newRecyclerView.setHasFixedSize(true)
 
-//      Passing data to adapter
-        newArrayList = arrayListOf<DataListKP>()
-        getUserdata()
+        val client1 = retrofit.create(Api::class.java)
+        val call: Call<ListkpResponse> = client1.getListKpResponse(token = "Bearer " + token)
+
+        call.enqueue(object : Callback<ListkpResponse> {
+            override fun onResponse( call: Call<ListkpResponse>, response: Response<ListkpResponse>) {
+
+                val respon: ListkpResponse? = response.body()
+                if (respon!= null){
+                    val list : List<InternshipItem> = respon.internship as List<InternshipItem>
+                    adapter.setListKpMahasiswa(list as ArrayList<InternshipItem>)
+                }
+
+            }
+
+            override fun onFailure(call: Call<ListkpResponse>, t: Throwable) {
+                Toast.makeText(this@HomeActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+
+        })
+//        newRecyclerView.layoutManager = LinearLayoutManager(this)
+//        newRecyclerView.setHasFixedSize(true)
+
     }
 
-    private fun getUserdata() {
-        for(i in instansi.indices) {
-            val datalist = DataListKP(instansi[i], status[i], alasan[i])
-            newArrayList.add(datalist)
-        }
-        newRecyclerView.adapter = AdapterListKP(newArrayList)
-    }
 }

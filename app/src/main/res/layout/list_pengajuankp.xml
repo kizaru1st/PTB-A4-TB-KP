@@ -24,13 +24,6 @@
             android:layout_height="wrap_content"
             android:text="Tittlesub"/>
 
-        <TextView
-            android:id="@+id/tittle_sub1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tittlesub1"
-            android:textSize="18dp"/>
-
     </LinearLayout>
 
 </LinearLayout>
