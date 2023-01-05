@@ -42,4 +42,10 @@ interface Api {
     @GET("/api/my-internship/{id}/logbook")
     fun listlogbook(@Header("Authorization") token: String, @Path("id") id:Int
     ):Call<LogbookResponse>
+
+    @GET("/api/my-internship/{id}/logbook/{id_logbook}")
+    fun detailLogbook(@Header("Authorization") token: String,
+                      @Path("id") id: Int,
+                      @Path("id_logbook") id_logbook: String?
+    ):Call<DetailLogBookResponse>
 }
