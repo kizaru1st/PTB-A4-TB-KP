@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cvLaporKPTelahSelesai"
+        android:id="@+id/ReftempatKP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -47,11 +47,12 @@
                 android:text="Lengkapi logbook untuk mencapai syarat kelulusan KP"
                 android:textColor="@color/hintGrey"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                app:layout_constraintStart_toStartOf="@+id/textView37"
+                app:layout_constraintTop_toBottomOf="@+id/textView37"
+                tools:ignore="DuplicateIds" />
 
             <TextView
-                android:id="@+id/textView35"
+                android:id="@+id/textView37"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="REFERENSI TEMPAT KP"
@@ -83,17 +84,17 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/textView34"
+                android:id="@+id/textView40"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lengkapi logbook untuk mencapai syarat kelulusan KP"
                 android:textColor="@color/hintGrey"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView35" />
+                app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
             <TextView
-                android:id="@+id/textView35"
+                android:id="@+id/textView36"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LAPOR KP TELAH SELESAI"
@@ -211,7 +212,7 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/textView30"
+                android:id="@+id/textView41"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="LAPORAN AKHIR KP"
@@ -229,7 +230,7 @@
                 android:textColor="@color/hintGrey"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView30" />
+                app:layout_constraintTop_toBottomOf="@+id/textView41" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

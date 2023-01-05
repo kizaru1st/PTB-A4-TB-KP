@@ -30,5 +30,10 @@ class DetailKPActivity : AppCompatActivity() {
             var intent = Intent(this, BalasanPermohonanKPActivity::class.java)
             startActivity(intent)
         }
+
+        ReftempatKP.setOnClickListener {
+            var intent = Intent(this, Re::class.java)
+            startActivity(intent)
+        }
     }
 }
