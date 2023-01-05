@@ -1,5 +1,6 @@
 package com.example.latihanandroid.retrofit
 
+import com.example.belajar_retrofit.datamodels.DetailLogBookResponse
 import com.example.belajar_retrofit.datamodels.LogbookResponse
 import com.example.latihanandroid.datamodels.*
 import retrofit2.Call
@@ -47,4 +48,10 @@ interface Api {
         @Path("id") id:Int,
         @Field("end_date") end_date:String
     ):Call<LaporKpSelesaiResponse>
+
+    @GET("/api/my-internship/{id}/logbook/{id_logbook}")
+    fun detailLogbookMaha(@Header("Authorization") token: String,
+                          @Path("id") id: Int,
+                          @Path("id_logbook") id_logbook: String?
+    ):Call<DetailLogBookResponse>
 }

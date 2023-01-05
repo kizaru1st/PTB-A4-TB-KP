@@ -65,7 +65,7 @@ class LogActivity : AppCompatActivity() {
                             apply()
                         }
                         Log.d("Detail-logbook",position.toString())
-                        val intent = Intent(this@LogActivity,ProfileActivity::class.java)
+                        val intent = Intent(this@LogActivity,DetailLogBookActivity::class.java)
 //
                         startActivity(intent)
                     }
