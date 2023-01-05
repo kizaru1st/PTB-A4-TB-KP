@@ -26,7 +26,7 @@ class DetailLogBookActivity : AppCompatActivity() {
         Log.d("Detail-logbook-debug","respon "+idl.toString())
 
         val client: Api = Config().getService()
-        val call: Call<DetailLogBookResponse> = client.detailLogbookMaha(token = "Bearer "+token,id,idl)
+        val call: Call<DetailLogBookResponse> = client.detailLogbook(token = "Bearer "+token,id,idl)
         Log.d("Detail-logbook-debug","respon "+token.toString())
         call.enqueue(object : Callback<DetailLogBookResponse> {
             override fun onResponse(

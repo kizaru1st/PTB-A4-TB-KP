@@ -42,7 +42,7 @@ interface Api {
     fun listlogbook(@Header("Authorization") token: String, @Path("id") id:Int
     ):Call<LogbookResponse>
 
-    @POST("/api/my-internship/2/finish-statement")
+    @POST("/api/my-internship/{id}/finish-statement")
     fun laporSelesaiKp(
         @Header("Authorization") token: String,
         @Path("id") id:Int,
@@ -50,8 +50,17 @@ interface Api {
     ):Call<LaporKpSelesaiResponse>
 
     @GET("/api/my-internship/{id}/logbook/{id_logbook}")
-    fun detailLogbookMaha(@Header("Authorization") token: String,
+    fun detailLogbook(@Header("Authorization") token: String,
                           @Path("id") id: Int,
                           @Path("id_logbook") id_logbook: String?
     ):Call<DetailLogBookResponse>
+
+    @FormUrlEncoded
+    @PATCH("/api/internship-students/{id}/logbook/{id_logbook}")
+    fun isirespon(@Header("Authorization") token: String,
+                  @Path("id") id: Int,
+                  @Path("id_logbook") id_logbook: String?,
+                  @Field("status") status:Int,
+                  @Field("note") note:String,
+    ):Call<UpdateLogbookResponse>
 }
