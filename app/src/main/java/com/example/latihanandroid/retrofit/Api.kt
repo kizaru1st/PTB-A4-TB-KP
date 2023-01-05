@@ -34,4 +34,7 @@ interface Api {
         @Field("new_password") new_password:String,
         @Field("confirm_password") confirm_password:String
     ):Call<UpdatePasswordResponse>
+
+    @GET("api/internship-agencies")
+    fun referensiList(@Header("Authorization") token: String): Call<ReferensiResponse>
 }

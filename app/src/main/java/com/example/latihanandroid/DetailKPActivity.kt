@@ -32,7 +32,7 @@ class DetailKPActivity : AppCompatActivity() {
         }
 
         ReftempatKP.setOnClickListener {
-            var intent = Intent(this, Re::class.java)
+            var intent = Intent(this, referensi_tempat_kp::class.java)
             startActivity(intent)
         }
     }
