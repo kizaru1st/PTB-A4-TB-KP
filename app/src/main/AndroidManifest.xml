@@ -70,14 +70,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LogBookActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".logbook.DetailrvLogbook"
+            android:name=".LogActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

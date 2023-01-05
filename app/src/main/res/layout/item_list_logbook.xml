@@ -15,24 +15,6 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/tvTanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@color/hintGrey"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvHariKe" />
-
-        <TextView
-            android:id="@+id/tvKegiatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTanggal" />
-
-        <TextView
             android:id="@+id/tvHariKe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_detail_kpactivity.*
-import kotlinx.android.synthetic.main.activity_home.*
 
 class DetailKPActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +11,7 @@ class DetailKPActivity : AppCompatActivity() {
         setContentView(R.layout.activity_detail_kpactivity)
 
         cvListLogbook.setOnClickListener {
-            var intent = Intent(this, LogBookActivity::class.java)
+            var intent = Intent(this, LogActivity::class.java)
             startActivity(intent)
         }
 

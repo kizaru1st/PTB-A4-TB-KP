@@ -1,8 +1,8 @@
-package com.example.latihanandroid.datamodels
+package com.example.belajar_retrofit.datamodels
 
 import com.google.gson.annotations.SerializedName
 
-data class ListLogbookResponse(
+data class LogbookResponse(
 
 	@field:SerializedName("report_title")
 	val reportTitle: String? = null,
@@ -32,7 +32,7 @@ data class ListLogbookResponse(
 	val certificate: Any? = null,
 
 	@field:SerializedName("logbooks")
-	val logbooks: List<Any?>? = null,
+	val logbooks: List<LogbooksItem>,
 
 	@field:SerializedName("student_id")
 	val studentId: Int? = null,
@@ -72,6 +72,33 @@ data class ListLogbookResponse(
 
 	@field:SerializedName("activity_report")
 	val activityReport: Any? = null,
+
+	@field:SerializedName("status")
+	val status: Int? = null
+)
+
+data class LogbooksItem(
+
+	@field:SerializedName("date")
+	val date: String? = null,
+
+	@field:SerializedName("note")
+	val note: Any? = null,
+
+	@field:SerializedName("internship_id")
+	val internshipId: Int? = null,
+
+	@field:SerializedName("updated_at")
+	val updatedAt: String? = null,
+
+	@field:SerializedName("activities")
+	val activities: String? = null,
+
+	@field:SerializedName("created_at")
+	val createdAt: String? = null,
+
+	@field:SerializedName("id")
+	val id: Int? = null,
 
 	@field:SerializedName("status")
 	val status: Int? = null
