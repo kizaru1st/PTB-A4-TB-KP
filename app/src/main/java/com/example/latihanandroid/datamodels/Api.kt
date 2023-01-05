@@ -42,13 +42,6 @@ interface Api {
     fun listlogbook(@Header("Authorization") token: String, @Path("id") id:Int
     ):Call<LogbookResponse>
 
-    @POST("/api/my-internship/{id}/finish-statement")
-    fun laporSelesaiKp(
-        @Header("Authorization") token: String,
-        @Path("id") id:Int,
-        @Field("end_date") end_date:String
-    ):Call<LaporKpSelesaiResponse>
-
     @GET("/api/my-internship/{id}/logbook/{id_logbook}")
     fun detailLogbook(@Header("Authorization") token: String,
                           @Path("id") id: Int,

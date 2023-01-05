@@ -32,15 +32,9 @@ class TambahLogActivity : AppCompatActivity() {
     fun onButtonSaveTambahLogbook() {
         val sharedToken = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)?: return
         val token = sharedToken.getString("TOKEN",null)
-
         val kegiatan = binding.InsertLogBook.text.toString()
-
-        Log.d("tambah-debug", "$kegiatan|Bearer $token")
-
         val client: Api = Config().getService()
         val call: Call<TambahLogbookResponse> = client.tambah_logbook(token = "Bearer $token", 5, kegiatan)
-        Log.d("tambah-debug", "$kegiatan|Bearer $token")
-
         call.enqueue(object: Callback<TambahLogbookResponse> {
             override fun onFailure(call: Call<TambahLogbookResponse>, t: Throwable) {
                 Log.d("tambah-debug",t.localizedMessage)
@@ -49,10 +43,8 @@ class TambahLogActivity : AppCompatActivity() {
                 call: Call<TambahLogbookResponse>,
                 response: Response<TambahLogbookResponse>
             ) {
-                Log.d("tambah-debug", "response : $response")
                 val respon: TambahLogbookResponse? = response.body()
                 if (respon != null && respon.status == "success" ) {
-                    Log.d("tambah-debug", "$token|$respon")
                     Toast.makeText(this@TambahLogActivity, "Berhasil Mengupdate Respon", Toast.LENGTH_SHORT).show()
                     intent = Intent(applicationContext, LogActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP

@@ -8,9 +8,7 @@ import com.example.latihanandroid.databinding.ItemListLogbookBinding
 
 class LogAdapter ()
     :RecyclerView.Adapter<LogAdapter.LogBookViewHolder>(){
-
     private lateinit var logbokLister : onClickListener
-
     interface onClickListener{
         fun onItemClick(position: Int)
     }
@@ -18,7 +16,6 @@ class LogAdapter ()
         logbokLister = listener
     }
     var listLogbook : List<LogbooksItem> = ArrayList()
-
     fun setlistLogbook(listLogbook:List<LogbooksItem>){
         this.listLogbook = listLogbook
         notifyDataSetChanged()
@@ -27,7 +24,6 @@ class LogAdapter ()
         return  LogBookViewHolder(ItemListLogbookBinding.inflate(LayoutInflater.from(parent.context)
             , parent, false),logbokLister)
     }
-
     override fun onBindViewHolder(holder: LogBookViewHolder, position: Int) {
         val item : LogbooksItem = listLogbook.get(position)
         holder.itemBinding.tvHariKe.text = item.activities

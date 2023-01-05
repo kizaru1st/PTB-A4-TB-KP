@@ -22,11 +22,8 @@ class DetailLogBookActivity : AppCompatActivity() {
         val token = sharedToken.getString("TOKEN","")
         val id = sharedToken.getInt("id",5)
         val idl = logbookpref.getString("id_logbook",null)
-        Log.d("Detail-logbook-debug","respon "+idl.toString())
-
         val client: Api = Config().getService()
         val call: Call<DetailLogBookResponse> = client.detailLogbook(token = "Bearer "+token,id,idl)
-        Log.d("Detail-logbook-debug","respon "+token.toString())
         call.enqueue(object : Callback<DetailLogBookResponse> {
             override fun onResponse(
                 call: Call<DetailLogBookResponse>,
@@ -42,7 +39,6 @@ class DetailLogBookActivity : AppCompatActivity() {
             override fun onFailure(call: Call<DetailLogBookResponse>, t: Throwable) {
                 Log.d("detail-debug", t.localizedMessage)
             }
-
         })
     }
 }
