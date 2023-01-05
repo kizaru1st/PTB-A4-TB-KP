@@ -1,5 +1,6 @@
 package com.example.latihanandroid.retrofit
 
+import com.example.belajar_retrofit.datamodels.LogbookResponse
 import com.example.latihanandroid.datamodels.*
 import retrofit2.Call
 import retrofit2.http.*
@@ -37,4 +38,8 @@ interface Api {
 
     @GET("api/internship-agencies")
     fun referensiList(@Header("Authorization") token: String): Call<ReferensiResponse>
+
+    @GET("/api/my-internship/{id}/logbook")
+    fun listlogbook(@Header("Authorization") token: String, @Path("id") id:Int
+    ):Call<LogbookResponse>
 }

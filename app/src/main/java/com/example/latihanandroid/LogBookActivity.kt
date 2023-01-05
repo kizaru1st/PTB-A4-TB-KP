@@ -1,90 +1,94 @@
 package com.example.latihanandroid
 
-import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.latihanandroid.Home.AdapterListKP
-import com.example.latihanandroid.Home.AdapterLogbook
-import com.example.latihanandroid.Home.DataListKP
-import com.example.latihanandroid.logbook.DataLogbook
-import com.example.latihanandroid.logbook.DetailrvLogbook
+import com.example.belajar_retrofit.datamodels.Config
+import com.example.belajar_retrofit.datamodels.LogbookResponse
+import com.example.belajar_retrofit.datamodels.LogbooksItem
+import com.example.latihanandroid.databinding.ActivityListLogbookBinding
+import com.example.latihanandroid.retrofit.Api
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LogBookActivity : AppCompatActivity() {
-
-    private lateinit var rv : RecyclerView
-    private lateinit var kegList : ArrayList<DataLogbook>
-    private lateinit var adapter: AdapterLogbook
-    lateinit var hari: Array<String>
-    lateinit var tanggal: Array<String>
-    lateinit var kegiatan: Array<String>
+    lateinit var adapter: LogbookAdapter
+    lateinit var recyclerView: RecyclerView
+    lateinit var binding: ActivityListLogbookBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_logbook)
+        binding = ActivityListLogbookBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        rv = findViewById(R.id.rvListLogbook1)
-        rv.layoutManager = LinearLayoutManager(this)
-        rv.setHasFixedSize(true)
+        val adapter: LogbookAdapter = LogbookAdapter()
 
-        hari = arrayOf(
-            "Hari Pertama",
-            "Hari Kedua",
-            "Hari Ketiga",
-            "Hari Keempat",
-            "Hari Kelima",
-            "Hari Keenam",
-            "Hari Ketujuh",
-            "Hari Kedelapan"
-        )
 
-        tanggal = arrayOf(
-            "1 Oktober 2022",
-            "2 Oktober 2022",
-            "3 Oktober 2022",
-            "4 Oktober 2022",
-            "5 Oktober 2022",
-            "6 Oktober 2022",
-            "7 Oktober 2022",
-            "8 Oktober 2022"
-        )
+        val sharedToken = applicationContext.getSharedPreferences("sharedPref", Context.MODE_PRIVATE) ?: return
+        val token = sharedToken.getString("TOKEN", "")
+        val sharedPref = getSharedPreferences("mar", Context.MODE_PRIVATE) ?: return
+        val id = sharedToken.getInt("ID", 5)
 
-        kegiatan = arrayOf(
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-            "Kegiatan Kerja Praktik",
-        )
+        val data = ArrayList<LogbooksItem>()
+        recyclerView = findViewById(R.id.rvListLogbook1)
 
-        kegList = arrayListOf<DataLogbook>()
-        getUserdata()
+        Log.d("list-book-debug", token.toString())
+        val client: Api = Config().getService()
+        val call: Call<LogbookResponse> = client.listlogbook(token = "Bearer " + token, id)
 
-        adapter = AdapterLogbook(kegList)
-        rv.adapter = adapter
+        call.enqueue(object : Callback<LogbookResponse> {
+            override fun onResponse(
+                call: Call<LogbookResponse>,
+                response: Response<LogbookResponse>
+            ) {
+                val respon = response.body()
+                if (respon != null) {
+                    val list: List<LogbooksItem> = respon.logbooks as List<LogbooksItem>
+                    adapter.setlistLogbook(list)
+                    Log.d("list-book-debug", list.toString())
+                }
+                Log.d("list-book-debug", respon?.logbooks?.size.toString())
+                Log.d("list-book-debug", "respon : " + respon?.logbooks.toString())
 
-        adapter.setOnItemClickListener(object : AdapterLogbook.onItemClickListener{
-            override fun onItemClick(position: Int) {
-                val intent = Intent(this@LogBookActivity, DetailrvLogbook::class.java)
-                intent.putExtra("hari", kegList[position].hari)
-                intent.putExtra("tanggal", kegList[position].tanggal)
-                intent.putExtra("kegiatan", kegList[position].kegiatan)
-                startActivity(intent)
+                adapter.setOnClickListener(object : LogbookAdapter.onClickListener {
+                    override fun onItemClick(position: Int) {
+                        val position = respon?.logbooks?.get(position)
+                        val sharedPref = getSharedPreferences("logbookpref", MODE_PRIVATE)?:return
+                        with(sharedPref.edit()){
+                            putString("id_logbook",position?.id.toString())
+                            apply()
+                        }
+                        Log.d("Detail-logbook",position.toString())
+                        val intent = Intent(this@LogBookActivity,DetailLogbookActivity::class.java)
+//
+                        startActivity(intent)
+                    }
+                })
+            }
+
+            override fun onFailure(call: Call<LogbookResponse>, t: Throwable) {
+                val text = "NT!"
+                val duration = Toast.LENGTH_SHORT
+                val toast = Toast.makeText(applicationContext, text, duration)
+                toast.show()
+                Log.d("list-book-debug", t.localizedMessage)
             }
 
         })
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+//        adapter.setOnClickListener(object : LogAdapter.onClickListener{
+//            override fun onItemClick(position: Int) {
+//                val intent = Intent(this@LogActivity,DetailLogBookActivity::class.java)
+//                startActivity(intent)
+//            }
+//        })
     }
 
-    private fun getUserdata() {
-        for(i in hari.indices) {
-            val loglist = DataLogbook(hari[i], tanggal[i], kegiatan[i])
-            kegList.add(loglist)
-        }
-        rv.adapter = AdapterLogbook(kegList)
-    }
 }
