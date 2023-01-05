@@ -13,6 +13,7 @@ import com.example.belajar_retrofit.datamodels.LogbookResponse
 import com.example.belajar_retrofit.datamodels.LogbooksItem
 import com.example.latihanandroid.databinding.ActivityListLogbookBinding
 import com.example.latihanandroid.retrofit.Api
+import kotlinx.android.synthetic.main.activity_list_logbook.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +27,10 @@ class LogActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListLogbookBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        btnTambahLog.setOnClickListener {
+            intent = Intent(applicationContext, TambahLogActivity::class.java)
+            startActivity(intent)
+        }
         val adapter: LogAdapter = LogAdapter()
 
 

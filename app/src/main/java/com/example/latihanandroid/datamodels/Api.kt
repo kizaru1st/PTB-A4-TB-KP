@@ -56,11 +56,10 @@ interface Api {
     ):Call<DetailLogBookResponse>
 
     @FormUrlEncoded
-    @PATCH("/api/internship-students/{id}/logbook/{id_logbook}")
-    fun isirespon(@Header("Authorization") token: String,
-                  @Path("id") id: Int,
-                  @Path("id_logbook") id_logbook: String?,
-                  @Field("status") status:Int,
-                  @Field("note") note:String,
-    ):Call<UpdateLogbookResponse>
+    @POST("/api/my-internship/{id}/logbook")
+    fun tambah_logbook(
+        @Header("Authorization") token: String,
+        @Path("id") id : Int,
+        @Field("activities") activities:String
+    ):Call<TambahLogbookResponse>
 }

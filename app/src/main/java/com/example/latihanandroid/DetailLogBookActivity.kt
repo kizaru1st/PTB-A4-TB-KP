@@ -17,11 +17,10 @@ class DetailLogBookActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_log_book)
-        val sharedTokennya = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)?: return
+        val sharedToken = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)?: return
         val logbookpref = getSharedPreferences("logbookpref", Context.MODE_PRIVATE)?:return
-
-        val token = sharedTokennya.getString("TOKEN","")
-        val id = sharedTokennya.getInt("id",5)
+        val token = sharedToken.getString("TOKEN","")
+        val id = sharedToken.getInt("id",5)
         val idl = logbookpref.getString("id_logbook",null)
         Log.d("Detail-logbook-debug","respon "+idl.toString())
 
